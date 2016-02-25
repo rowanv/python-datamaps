@@ -6,6 +6,7 @@ from urllib.request import urlopen
 
 from test_app import app
 
+
 class BaseMapRenders(LiveServerTestCase):
     def create_app(self):
         app.config['TESTING'] = True

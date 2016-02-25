@@ -10,5 +10,10 @@
 {% block endscripts %}
 <script>
     var map = new Datamap({element: document.getElementById('container')});
+    {% if map_elem.default_fill %}
+        fills: {
+            defaultFill: {{ map_elem.default_fill }}
+        }
+    {% endif %}
 </script>
 {% endblock endscripts %}

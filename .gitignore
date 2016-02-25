@@ -60,3 +60,6 @@ target/
 
 #Ipython Notebook
 .ipynb_checkpoints
+
+# Test-rendered templates
+datamaps/tests/test_app/templates/*

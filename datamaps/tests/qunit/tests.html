@@ -40,10 +40,17 @@
             'Container element exists');
     });
     // First map has been drawn
+    // Has a root svg element
+    test('First Datamap SVG', function() {
+        equal( $('svg').length, 1,
+            'There is one SVG element.')
+    })
+    // Has many path elements
     test('First Datamap', function() {
         equal( $("path").length, 177,
             'There are many paths for the first datamap');
     });
+
 
 
 

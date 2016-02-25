@@ -14,6 +14,11 @@ class BasicMapTest(unittest.TestCase):
             "{element: document.getElementById('container')});"\
             in basic_map.html_content
 
+    def test_can_change_default_fill(self):
+        basic_map = BasicMap(default_fill='rgb(23,48,101)')
+        basic_map.build_html()
+        assert 'rgb(23,48,101)' in basic_map.html_content
+
 
 if __name__ == '__main__':
     unittest.main()
