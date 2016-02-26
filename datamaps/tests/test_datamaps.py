@@ -43,6 +43,49 @@ class BasicMapTest(unittest.TestCase):
         basic_map.build_html()
         assert 'height: 400,' in basic_map.html_content
 
+    def test_can_change_defalt_width(self):
+        basic_map = BasicMap(width=400)
+        basic_map.build_html()
+        assert 'width: 400' in basic_map.html_content
+
+    def test_can_change_default_scope(self):
+        basic_map = BasicMap()
+        basic_map.build_html()
+        assert "scope" not in basic_map.html_content
+
+        basic_map = BasicMap(scope='world')
+        basic_map.build_html()
+        assert "scope: 'world'," in basic_map.html_content
+
+    def test_can_make_responsive(self):
+        basic_map = BasicMap()
+        basic_map.build_html()
+        assert 'responsive' not in basic_map.html_content
+
+        basic_map = BasicMap(responsive='true')
+        basic_map.build_html()
+        print(basic_map.html_content)
+        assert "responsive: true" in basic_map.html_content
+
+class BasicMapBubbleTests(unittest.TestCase):
+
+    def test_can_add_bubbles_border_width(self):
+        basic_map = BasicMap()
+        basic_map.build_html()
+        assert 'bubblesConfig' not in basic_map.html_content
+
+        basic_map = BasicMap(bubbles_config={'border_width': 4})
+        basic_map.build_html()
+        assert 'borderWidth: 4' in basic_map.html_content
+
+    def test_can_add_bubbles_border_opacity(self):
+        basic_map = BasicMap(
+            bubbles_config={'border_opacity': 2})
+        basic_map.build_html()
+        assert 'borderOpacity: 2' in basic_map.html_content
+
+
+
 
 if __name__ == '__main__':
     unittest.main()

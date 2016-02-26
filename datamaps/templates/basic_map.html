@@ -17,10 +17,30 @@
         {% if map_elem.height %}
             height: {{ map_elem.height }},
         {% endif %}
+        {% if map_elem.width %}
+            width: {{ map_elem.width }},
+        {% endif %}
+        {% if map_elem.scope %}
+            scope: '{{ map_elem.scope }}',
+        {% endif %}
+        {% if map_elem.responsive %}
+            responsive: {{ map_elem.responsive }},
+        {% endif %}
 
     {% if map_elem.default_fill %}
         fills: {
             defaultFill: '{{ map_elem.default_fill }}'
+        }
+    {% endif %}
+
+    {% if map_elem.bubbles_config %}
+        bubblesConfig: {
+            {% if map_elem.bubbles_config.border_width %}
+                borderWidth: {{ map_elem.bubbles_config.border_width }},
+            {% endif %}
+            {% if map_elem.bubbles_config.border_opacity %}
+                borderOpacity: {{ map_elem.bubbles_config.border_opacity }},
+            {% endif %}
         }
     {% endif %}
     });
