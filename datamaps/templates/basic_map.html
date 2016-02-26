@@ -2,18 +2,21 @@
 
 {% block body %}
 
-<div id="container" style="position: relative; width: 500px; height: 300px;"></div>
+<div id="{{ map_elem.element_id }}" style="position: relative; width: 500px; height: 300px;"></div>
 
 
 {% endblock body %}
 
 {% block endscripts %}
 <script>
-    var map = new Datamap({element: document.getElementById('container')});
+    var map = new Datamap({
+        element: document.getElementById('{{ map_elem.element_id }}'),
+
     {% if map_elem.default_fill %}
         fills: {
-            defaultFill: {{ map_elem.default_fill }}
+            defaultFill: '{{ map_elem.default_fill }}'
         }
     {% endif %}
+    });
 </script>
 {% endblock endscripts %}

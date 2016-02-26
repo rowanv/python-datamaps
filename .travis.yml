@@ -14,3 +14,6 @@ install:
 script:
 # Functional and Unit Python tests
 - nosetests
+# Create test application
+- python -m datamaps.tests.qunit.create_test_map_elems
+

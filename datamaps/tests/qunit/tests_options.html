@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Javascript tests</title>
+    <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-1.22.0.css">
+</head>
+
+<body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="https://code.jquery.com/qunit/qunit-1.22.0.js"></script>
+    <script src='https://code.jquery.com/jquery-2.2.1.min.js'></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+    <script src="http://datamaps.github.io/scripts/datamaps.world.min.js?v=1"></script>
+    <script>
+    // tell QUnit you're not ready to start right away...
+    QUnit.config.autostart = false;
+
+    $.ajax({
+      url: '../test_app/templates/test_color_change.html',
+      dataType: 'html',
+      success: function(html) {
+        // find specific elements you want...
+        var elem = $(html)//$(html).find('body');
+        $('#qunit-fixture').append(elem);
+        console.log(elem);
+
+        QUnit.start();  // ...tell QUnit you're ready to go
+      }
+    });
+    </script>
+
+    <script>
+    /*global $, test, equal */
+
+    test('Map Container Element Exists', function() {
+        equal($('#map_container').length, 1,
+            'Container element exists when choosing via arg');
+    });
+    // First map has been drawn
+    // Has a root svg element
+    test('First Datamap SVG', function() {
+        equal( $('svg').length, 1,
+            'There is one SVG element within container element.')
+    })
+    // Has many path elements
+    test('First Datamap', function() {
+        equal( $("path").length, 177,
+            'There are many paths for the first datamap');
+    });
+
+
+
+
+    </script>
+
+</body>
+</html>
