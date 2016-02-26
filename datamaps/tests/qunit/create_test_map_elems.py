@@ -5,8 +5,9 @@ from datamaps import BasicMap
 
 def write_map_elem_file(file_name, map_elem):
     # Using relative paths so will work on Travis build as well
-    script_path = os.path.dirname(__file__)
-    root_app_dir = os.path.join(script_path, '../test_app/templates/')
+    script_path = os.path.join(os.path.dirname(__file__), os.pardir)
+    root_app_dir = os.path.join(script_path,
+        'test_app/templates/')
 
     output_file = open(root_app_dir + file_name, 'w')
     map_elem.build_html()

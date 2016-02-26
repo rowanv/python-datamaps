@@ -63,3 +63,6 @@ target/
 
 # Test-rendered templates
 datamaps/tests/test_app/templates/*
+
+# Coverage
+cover/*

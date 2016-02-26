@@ -16,7 +16,7 @@ script:
     # Functional and Unit Python tests
     -  nosetests --with-coverage --cover-inclusive --cover-package=datamaps --cover-html
     # Create test application
-    - python -m datamaps.tests.qunit.create_test_map_elems
+    # - python -m datamaps.tests.qunit.create_test_map_elems
 
 after_success:
    -coveralls
