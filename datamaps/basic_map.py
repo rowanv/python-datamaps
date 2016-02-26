@@ -19,6 +19,8 @@ class BasicMap:
         self.template_page = template_page
         self.element_id = kwargs.get('element_id', 'container')
         self.default_fill = kwargs.get('default_fill', None)
+        self.height = kwargs.get('height', None)
+        self.projection = kwargs.get('projection', None)
 
 
     def build_html(self):

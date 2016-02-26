@@ -11,6 +11,12 @@
 <script>
     var map = new Datamap({
         element: document.getElementById('{{ map_elem.element_id }}'),
+        {% if map_elem.projection %}
+            projection: '{{ map_elem.projection }}',
+        {% endif %}
+        {% if map_elem.height %}
+            height: {{ map_elem.height }},
+        {% endif %}
 
     {% if map_elem.default_fill %}
         fills: {

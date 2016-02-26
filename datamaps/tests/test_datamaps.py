@@ -28,6 +28,21 @@ class BasicMapTest(unittest.TestCase):
         assert "document.getElementById('map_container')" \
             in basic_map.html_content
 
+    def test_can_change_default_projection(self):
+        basic_map = BasicMap()
+        basic_map.build_html()
+        assert 'projection' not in basic_map.html_content
+
+        basic_map = BasicMap(projection='equirectangular')
+        basic_map.build_html()
+        assert "projection: 'equirectangular'" in \
+            basic_map.html_content
+
+    def test_can_change_default_height(self):
+        basic_map = BasicMap(height=400)
+        basic_map.build_html()
+        assert 'height: 400,' in basic_map.html_content
+
 
 if __name__ == '__main__':
     unittest.main()
