@@ -59,6 +59,24 @@
             {% if map_elem.bubbles_config.highlight_on_hover %}
                 highlightOnHover: {{ map_elem.bubbles_config.highlight_on_hover }},
             {% endif %}
+            {% if map_elem.bubbles_config.highlight_fill_color %}
+                highlightFillColor: '{{ map_elem.bubbles_config.highlight_fill_color }}',
+            {% endif %}
+            {% if map_elem.bubbles_config.highlight_border_color %}
+                highlightBorderColor: '{{ map_elem.bubbles_config.highlight_border_color }}',
+            {% endif %}
+            {% if map_elem.bubbles_config.highlight_border_width %}
+                highlightBorderWidth: {{ map_elem.bubbles_config.highlight_border_width }},
+            {% endif %}
+            {% if map_elem.bubbles_config.highlight_border_opacity %}
+                highlightBorderOpacity: {{ map_elem.bubbles_config.highlight_border_opacity }},
+            {% endif %}
+            {% if map_elem.bubbles_config.highlight_fill_opacity %}
+                highlightFillOpacity: {{ map_elem.bubbles_config.highlight_fill_opacity }},
+            {% endif %}
+            {% if map_elem.bubbles_config.exit_delay %}
+                exitDelay: {{ map_elem.bubbles_config.exit_delay }},
+            {% endif %}
         }
     {% endif %}
     });

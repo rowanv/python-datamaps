@@ -120,7 +120,42 @@ class BasicMapBubbleTests(unittest.TestCase):
         basic_map.build_html()
         assert "highlightOnHover: true," in basic_map.html_content
 
+    def test_can_change_bubbles_highlight_fill_color(self):
+        basic_map = BasicMap(
+            bubbles_config={'highlight_fill_color': '#fcfcfc'})
+        basic_map.build_html()
+        print(basic_map.html_content)
+        assert "highlightFillColor: '#fcfcfc'" in basic_map.html_content
 
+    def test_can_change_highlight_border_color(self):
+        basic_map = BasicMap(
+            bubbles_config={'highlight_border_color': '#fcfcfc'})
+        basic_map.build_html()
+        assert "highlightBorderColor: '#fcfcfc'" in basic_map.html_content
+
+    def test_can_change_highlight_border_width(self):
+        basic_map = BasicMap(
+            bubbles_config={'highlight_border_width': 3})
+        basic_map.build_html()
+        assert "highlightBorderWidth: 3," in basic_map.html_content
+
+    def test_can_change_highlight_border_opacity(self):
+        basic_map = BasicMap(
+            bubbles_config={'highlight_border_opacity': 0.8})
+        basic_map.build_html()
+        assert "highlightBorderOpacity: 0.8," in basic_map.html_content
+
+    def test_can_change_highlight_fill_opacity(self):
+        basic_map = BasicMap(
+            bubbles_config={'highlight_fill_opacity': 0.7})
+        basic_map.build_html()
+        assert "highlightFillOpacity: 0.7," in basic_map.html_content
+
+    def test_can_change_bubble_exit_delay(self):
+        basic_map = BasicMap(
+            bubbles_config={'exit_delay': 200})
+        basic_map.build_html()
+        assert "exitDelay: 200" in basic_map.html_content
 
 
 
