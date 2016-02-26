@@ -41,6 +41,24 @@
             {% if map_elem.bubbles_config.border_opacity %}
                 borderOpacity: {{ map_elem.bubbles_config.border_opacity }},
             {% endif %}
+            {% if map_elem.bubbles_config.border_color %}
+                borderColor: '{{ map_elem.bubbles_config.border_color }}',
+            {% endif %}
+            {% if map_elem.bubbles_config.popup_on_hover %}
+                popupOnHover: {{ map_elem.bubbles_config.popup_on_hover }},
+            {% endif %}
+            {% if map_elem.bubbles_config.radius %}
+                radius: {{ map_elem.bubbles_config.radius }},
+            {% endif %}
+            {% if map_elem.bubbles_config.fill_opacity %}
+                fillOpacity: {{ map_elem.bubbles_config.fill_opacity }},
+            {% endif %}
+            {% if map_elem.bubbles_config.animate %}
+                animate: {{ map_elem.bubbles_config.animate }},
+            {% endif %}
+            {% if map_elem.bubbles_config.highlight_on_hover %}
+                highlightOnHover: {{ map_elem.bubbles_config.highlight_on_hover }},
+            {% endif %}
         }
     {% endif %}
     });

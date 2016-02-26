@@ -84,6 +84,43 @@ class BasicMapBubbleTests(unittest.TestCase):
         basic_map.build_html()
         assert 'borderOpacity: 2' in basic_map.html_content
 
+    def test_can_add_bubbles_border_colour(self):
+        basic_map = BasicMap(
+            bubbles_config={'border_color': '#cfcfcf'})
+        basic_map.build_html()
+        assert "borderColor: '#cfcfcf'" in basic_map.html_content
+
+    def test_can_add_bubbles_popup_on_hover(self):
+        basic_map = BasicMap(
+            bubbles_config={'popup_on_hover': 'true'})
+        basic_map.build_html()
+        assert "popupOnHover: true" in basic_map.html_content
+
+    def test_can_change_bubbles_radius(self):
+        basic_map = BasicMap(
+            bubbles_config={'radius': 4})
+        basic_map.build_html()
+        assert "radius: 4" in basic_map.html_content
+
+    def test_can_change_bubbles_fill_opacity(self):
+        basic_map = BasicMap(
+            bubbles_config={'fill_opacity': 0.75})
+        basic_map.build_html()
+        assert "fillOpacity: 0.75," in basic_map.html_content
+
+    def test_can_change_bubbles_animate(self):
+        basic_map = BasicMap(
+            bubbles_config={'animate': 'true'})
+        basic_map.build_html()
+        assert "animate: true," in basic_map.html_content
+
+    def test_can_change_bubbles_highlight_on_hover(self):
+        basic_map = BasicMap(
+            bubbles_config={'highlight_on_hover': 'true'})
+        basic_map.build_html()
+        assert "highlightOnHover: true," in basic_map.html_content
+
+
 
 
 
