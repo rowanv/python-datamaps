@@ -9,11 +9,14 @@ before_install:
     - sleep 3 # give xvfb some time to start
 # Install dependencies
 install:
-  - pip install -r requirements.txt
+    - pip install -r requirements.txt
+    - pip install coveralls
 
 script:
-# Functional and Unit Python tests
-- nosetests
-# Create test application
-- python -m datamaps.tests.qunit.create_test_map_elems
+    # Functional and Unit Python tests
+    -  nosetests --with-coverage --cover-inclusive --cover-package=datamaps --cover-html
+    # Create test application
+    - python -m datamaps.tests.qunit.create_test_map_elems
 
+after_success:
+   -coveralls
